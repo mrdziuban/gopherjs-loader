@@ -6,7 +6,7 @@ module.exports = function(source) {
   const callback = this.async();
   const tmp = path.join(__dirname, 'tmp');
   const fname = path.basename(this.resourcePath, '.go');
-  const files = fs.readdirSync(this.context).filter(f => /[^(_test)]\.go$/.test(f)).map(f => `'${this.context}/${f}'`);
+  const files = fs.readdirSync(this.context).filter(f => f.slice(-8) !== "_test.go").map(f => `'${this.context}/${f}'`);
   const cmd = `gopherjs build ${files.join(' ')} -o '${path.join(tmp, `${fname}.js`)}'`;
   child_process.execSync(`rm -rf '${tmp}'`);
   child_process.execSync(`mkdir -p '${tmp}'`);
