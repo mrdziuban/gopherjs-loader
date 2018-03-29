@@ -4,6 +4,7 @@
   "author": "Matt Dziuban",
   "description": "GopherJS loader module for webpack",
   "dependencies": {
+    "mkdirp": "^0.5.1"
   },
   "repository": {
     "type": "git",
